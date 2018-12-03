@@ -45,6 +45,34 @@ layer {
 }
 
 ```
+最后一层修改为：
+```
+layer {
+        name: "detection_out"
+        type: "YoloDetectionOutput"
+        bottom: "layer15-conv"
+        top: "detection_out"
+        include {
+                phase: TEST
+        }
+        yolo_detection_output_param {
+                num_classes: 1
+                coords: 4
+                confidence_threshold: 0.4
+                nms_threshold: 0.45
+                biases: 1.08
+                biases: 1.19
+                biases: 3.42
+                biases: 4.41
+                biases: 6.63
+                biases: 11.38
+                biases: 9.42
+                biases: 5.11
+                biases: 16.62
+                biases: 10.52
+        }
+}
+```
 
 ### Reference：
 > https://github.com/marvis/pytorch-caffe-darknet-convert
