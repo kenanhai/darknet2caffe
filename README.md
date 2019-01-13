@@ -74,6 +74,22 @@ layer {
 }
 ```
 
+修改pad
+```
+layer {
+    bottom: "layer11-conv"
+    top: "layer12-maxpool"
+    name: "layer12-maxpool"
+    type: "Pooling"
+    pooling_param {
+        kernel_size: 2
+        stride: 1
+        pool: MAX
+        pad: 1
+    }
+}
+```
+
 ### Reference：
 > https://github.com/marvis/pytorch-caffe-darknet-convert
 
